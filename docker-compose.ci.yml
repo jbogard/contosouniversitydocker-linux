@@ -2,9 +2,11 @@ version: '3'
 
 services:
   ci:
-    build:
-      context: .
-      dockerfile: ci.Dockerfile
+    image: microsoft/aspnetcore-build:2.0-jessie
+    volumes:
+      - ./:/src
+    working_dir: /src
+    entrypoint: /bin/bash
     environment:
       - "ConnectionStrings:DefaultConnection=Server=test-db;Database=contosouniversity-test;User Id=sa;Password=yourStrong(!)Password"
     depends_on:
