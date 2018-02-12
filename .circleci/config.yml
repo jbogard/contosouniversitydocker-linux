@@ -14,4 +14,6 @@ jobs:
     steps:
       - checkout
 
+      - run: chmod +x ./ci.sh
+
       - run: ./ci.sh
